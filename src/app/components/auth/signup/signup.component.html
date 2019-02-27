@@ -1,0 +1,94 @@
+<mat-card>
+  <h3>User registration page</h3>
+  <form (submit)="handleSubmit(signupForm)"  #signupForm="ngForm"  >
+      <mat-form-field hintLabel="Max 10 characters">
+          <input
+          matInput
+          ngModel
+          type="text"
+          name="name"
+          #name="ngModel"
+          maxlength="10"
+          placeholder="Enter name"
+          required
+          >
+          <mat-hint align="end">{{name.value?.length || 0}}/10</mat-hint>
+          <mat-error *ngIf="name.invalid" >
+              Please enter valid name
+          </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Email</mat-label>
+          <input
+          matInput
+          type="email"
+          name="email"
+          placeholder="Enter email"
+          ngModel
+          #email="ngModel"
+          required
+          >
+          <mat-error *ngIf="email.invalid" >
+              Please enter valid email
+          </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+          <input
+          matInput
+          type="text"
+          name="username"
+          placeholder="Username"
+          ngModel
+          #username="ngModel"
+          required
+          >
+          <mat-error *ngIf="username.invalid" >
+              Username is required
+          </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+          <input
+          matInput
+          type="password"
+          name="password"
+          placeholder="password"
+          ngModel
+          #password="ngModel"
+          required
+          >
+          <mat-error *ngIf="password.invalid" >
+              Password is required
+          </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+          <input
+          matInput
+          type="password"
+          name="confirm_password"
+          placeholder="Confirm password"
+          ngModel
+          #confirm_password="ngModel"
+          required
+          >
+          <mat-error *ngIf="confirm_password.invalid" >
+              Confirm password is required
+          </mat-error>
+      </mat-form-field>
+      <div>
+          <button type="submit" mat-raised-button color="primary">SignUp</button>
+          <button
+          type="button"
+          id="loginButton"
+          mat-raised-button
+          color="accent"
+          [routerLink]="['login']"
+          >Login</button>
+      </div>
+
+
+  </form>
+</mat-card>

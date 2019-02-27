@@ -1,0 +1,44 @@
+<mat-card>
+  <h3>Login to Angular App</h3>
+  <form (submit)="handleLogin(login)"  #login="ngForm">
+
+      <mat-form-field appearance="outline" >
+        <mat-label>Email</mat-label>
+          <input
+          matInput
+          type="email"
+          name="email"
+          placeholder="Enter email"
+          ngModel
+          #email="ngModel"
+          required
+          >
+          <mat-error *ngIf="email.invalid" >
+              Please enter valid email
+          </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" >
+        <mat-label>Password</mat-label>
+          <input
+          matInput
+          type="password"
+          name="password"
+          placeholder="password"
+          ngModel
+          #password="ngModel"
+          required
+          >
+          <mat-error *ngIf="password.invalid" >
+              Password is required
+          </mat-error>
+      </mat-form-field>
+      <div>
+          <button type="submit" mat-raised-button color="primary">SignIn</button>
+          <button type="button" id="signButton" mat-raised-button [routerLink]="['/auth']" color="accent">SignUp</button>
+      </div>
+
+
+  </form>
+</mat-card>
+
